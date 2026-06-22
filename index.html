@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Samiul Alim | IT Operations & SecOps Engineer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-card: rgba(30, 41, 59, 0.4);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --accent: #10b981; /* Emerald green */
+            --accent-glow: rgba(16, 185, 129, 0.2);
+            --accent-blue: #38bdf8;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 5% 15%, rgba(16, 185, 129, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 95% 85%, rgba(56, 189, 248, 0.03) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Navbar Styling */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 8%;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-socials {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-social-link {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .nav-social-link:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Header Section */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-badge {
+            background: var(--bg-card);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 auto 24px auto;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        header h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        header h1 span {
+            color: var(--accent);
+            text-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        header p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 750px;
+            margin: 0 auto 40px auto;
+        }
+
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: 'Space Grotesk', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #0b0f19;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--text-secondary);
+        }
+
+        .btn-linkedin {
+            background: #0077b5;
+            color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 119, 181, 0.25);
+        }
+
+        .btn-linkedin:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 119, 181, 0.4);
+            background: #006699;
+        }
+
+        /* Container & Section Layout rules */
+        section {
+            padding: 100px 10%;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title span {
+            color: var(--accent);
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            max-width: 750px;
+        }
+
+        /* Experience Timeline Layout */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .experience-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .experience-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .company-name {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        .job-date {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .experience-card ul {
+            list-style: none;
+        }
+
+        .experience-card li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .experience-card li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        /* Service Offerings Section Layout */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 35px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .service-title-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-primary);
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Grid Layout for Skills Matrix */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .skill-item:hover {
+            border-color: var(--accent);
+            background: rgba(16, 185, 129, 0.03);
+            transform: translateY(-3px);
+        }
+
+        .skill-item i {
+            display: block;
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        /* Education Layout Grid */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        .edu-card {
+            border-left: 3px solid var(--accent);
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 0 16px 16px 0;
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .edu-degree {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .edu-card p {
+            color: var(--text-secondary);
+        }
+
+        /* Contact Details */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .info-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-primary);
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .info-link:hover {
+            color: var(--accent);
+        }
+
+        .info-link i {
+            width: 45px;
+            height: 45px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+
+        .contact-status-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-status-card i {
+            font-size: 3.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        footer {
+            padding: 40px;
+            text-align: center;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            background: rgba(7, 11, 21, 0.4);
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 1024px) {
+            .nav-container { gap: 20px; }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.6rem; }
+            nav { padding: 15px 5%; }
+            .nav-container { display: none; }
+            .contact-wrapper { grid-template-columns: 1fr; }
+            section { padding: 60px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="nav-logo">SAMIUL<span>.ALIM</span></a>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-socials">
+                <a href="https://linkedin.com/in/md-samiul-alim-83834511b" target="_blank" class="nav-social-link" title="LinkedIn Profile"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div>
+            <div class="hero-badge"><i class="fa-solid fa-shield-halved"></i> IT OPERATIONS Professional</div>
+            <h1>Hi, I'm <span>Md. Samiul Alim</span></h1>
+            <p>I organize day-to-day IT systems execution, optimize enterprise infrastructure environments, and deploy baseline cybersecurity defenses across global organizations.</p>
+            <div class="cta-container">
+                <a href="#contact" class="btn btn-primary">Let's Connect</a>
+                <a href="#experience" class="btn btn-secondary">View History</a>
+                <a href="https://linkedin.com/in/md-samiul-alim-83834511b" target="_blank" class="btn btn-linkedin"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="experience">
+        <h2 class="section-title">Professional <span>Experience</span></h2>
+        <p class="section-subtitle">Chronological record of my technical career within operational management and security environments.</p>
+        
+        <div class="timeline">
+            <!-- Novo Nordisk -->
+            <div class="experience-card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="job-title">IT Operations Professional</h3>
+                        <div class="company-name">Novo Nordisk Pharma (Private) Ltd. [Dhaka]</div>
+                    </div>
+                    <span class="job-date">November 2024 - Present</span>
+                </div>
+                <ul>
+                    <li>Oversee day-to-day operations of key corporate IT systems, verifying continuous network efficiency.</li>
+                    <li>Provide technical hardware and software support to organizational employees, resolving anomalies systematically.</li>
+                    <li>Configure, maintain, and optimize core network architectures to maximize throughput and system safety parameters.</li>
+                    <li>Plan and schedule operating system updates, baseline application upgrades, and system-wide maintenance patches.</li>
+                    <li>Collaborate closely with global IT coordination teams and overseas engineering units for clean services integrations.</li>
+                    <li>Maintain comprehensive configurations checklists, system guidelines, and operational process files.</li>
+                    <li>Enforce system alignment to strict corporate compliance frameworks, executing baseline defenses to block intrusion.</li>
+                </ul>
+            </div>
+
+            <!-- Elanco -->
+            <div class="experience-card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="job-title">System Support Engineer</h3>
+                        <div class="company-name">ELANCO BANGLADESH Ltd. [Dhaka]</div>
+                    </div>
+                    <span class="job-date">March 2024 - November 2024</span>
+                </div>
+                <ul>
+                    <li>Supervised, configured, and audited physical compute networks, server databases, and application systems.</li>
+                    <li>Installed, configured, and maintained system environments, baseline software systems, and system management parameters.</li>
+                    <li>Monitored transaction logs to isolate bottlenecks, collaborating with global teams to deploy permanent fixes.</li>
+                    <li>Administered secure redundancy schemas, directory permission access, and data backups procedures.</li>
+                    <li>Maintained structural inventory databases tracking organizational hardware assets (HAM).</li>
+                    <li>Delivered elevated L2 and L3 troubleshooting support, interfacing with utilities vendors for rapid hardware resolutions.</li>
+                </ul>
+            </div>
+
+            <!-- Labaid Cancer Hospital -->
+            <div class="experience-card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="job-title">Executive - Information Technology</h3>
+                        <div class="company-name">Labaid Cancer Hospital & Super Speciality Center [Dhaka]</div>
+                    </div>
+                    <span class="job-date">June 2022 - February 2024</span>
+                </div>
+                <ul>
+                    <li>Supported enterprise LAN/WAN routers, managed switches, and hospital-wide Wi-Fi access configurations.</li>
+                    <li>Configured Active Directory parameters to systematize user privileges and maintain continuous connection logs.</li>
+                    <li>Provided complete L1/L2 configurations for local Hospital Information Systems (HIS) and managed secure MySQL database updates.</li>
+                    <li>Configured biometric check-in modules, peripheral network printers, scanners, and CCTV server storage paths.</li>
+                    <li>Administered Kaspersky Endpoint Security Server console across terminal nodes to block intrusion vulnerabilities.</li>
+                </ul>
+            </div>
+
+            <!-- Techforing -->
+            <div class="experience-card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="job-title">Jr. Cyber Security Engineer</h3>
+                        <div class="company-name">TechForing Ltd. [Dhaka]</div>
+                    </div>
+                    <span class="job-date">December 2021 - June 2022</span>
+                </div>
+                <ul>
+                    <li>Protected client data systems by identifying vulnerabilities and configuring robust security parameters.</li>
+                    <li>Executed pen-testing, vulnerability scanners, incident forensics, malware tracking, and social engineering tests.</li>
+                    <li>Regulated file systems by auditing folder permissions, access keys, and storage parameters.</li>
+                    <li>Prepared intelligence logs, threat briefs, and network hardening guidelines for client operations.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Offerings Section -->
+    <section id="services">
+        <h2 class="section-title">Service <span>Offerings</span></h2>
+        <p class="section-subtitle">Comprehensive structural tech-enabled solutions engineered to optimize security, administration, and support parameters.</p>
+        <div class="services-grid">
+            <!-- Technical Support -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-headset"></i></div>
+                <div class="service-title-text">Technical Support</div>
+                <p class="service-description">L2/L3 enterprise support, hardware diagnostics, network troubleshooting, and cross-platform operating environment setups (Windows, Linux, macOS) maintaining high availability.</p>
+            </div>
+            <!-- IT Consulting -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-compass"></i></div>
+                <div class="service-title-text">IT Consulting</div>
+                <p class="service-description">Structuring secure corporate directory configurations, vulnerability management, security compliance assessments, risk audits, and scalable network architectures design.</p>
+            </div>
+            <!-- Virtual Assistance -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-network-wired"></i></div>
+                <div class="service-title-text">Virtual Assistance</div>
+                <p class="service-description">Remotely managing identity directories (Entra ID, Active Directory), automating standard service desk requests, organizing hardware inventories, and maintaining accurate procedural diagrams.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Grid -->
+    <section id="skills">
+        <h2 class="section-title">Technical <span>Expertise</span></h2>
+        <p class="section-subtitle">Specific utility stacks, protocols, and infrastructure categories in my professional domain.</p>
+        <div class="skills-grid">
+            <div class="skill-item"><i class="fa-solid fa-headset"></i>Service Desk</div>
+            <div class="skill-item"><i class="fa-solid fa-fingerprint"></i>Entra ID & Identity Management</div>
+            <div class="skill-item"><i class="fa-solid fa-mobile-screen-button"></i>Apple MDM</div>
+            <div class="skill-item"><i class="fa-solid fa-window-restore"></i>MS Power Platform</div>
+            <div class="skill-item"><i class="fa-solid fa-gears"></i>Process Automation</div>
+            <div class="skill-item"><i class="fa-solid fa-users"></i>End User Support</div>
+            <div class="skill-item"><i class="fa-solid fa-boxes-stacked"></i>Hardware Asset Management</div>
+            <div class="skill-item"><i class="fa-solid fa-network-wired"></i>Routing & Switching</div>
+            <div class="skill-item"><i class="fa-solid fa-server"></i>Active Directory</div>
+            <div class="skill-item"><i class="fa-solid fa-shield-virus"></i>Vulnerability Audit</div>
+            <div class="skill-item"><i class="fa-solid fa-terminal"></i>Windows Server & Linux</div>
+            <div class="skill-item"><i class="fa-solid fa-database"></i>MySQL DB Server</div>
+            <div class="skill-item"><i class="fa-solid fa-user-shield"></i>Penetration Testing</div>
+            <div class="skill-item"><i class="fa-solid fa-ticket"></i>ServiceNow / Ticketing</div>
+            <div class="skill-item"><i class="fa-solid fa-cloud"></i>Office 365 Admin</div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 class="section-title">Academic <span>Records</span></h2>
+        <p class="section-subtitle">Academic degrees and engineering foundations.</p>
+        <div class="edu-grid">
+            <div class="edu-card">
+                <h3 class="edu-degree">B.Sc. in Information & Communication Engineering</h3>
+                <p><strong>East West University, Dhaka</strong></p>
+                <p style="margin-top: 10px;">Graduated: 2016 - 2021</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Get In <span>Touch</span></h2>
+        <p class="section-subtitle">Contact me to coordinate system operational optimization audits or discuss open IT engineering roles.</p>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Let's collaborate on your next project</h3>
+                <p>I am prepared to manage complex infrastructure servers, coordinate with global teams, and maintain baseline threat vulnerability tracking parameters.</p>
+                
+                <a href="mailto:samiul.alim10@gmail.com" class="info-link">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>samiul.alim10@gmail.com</span>
+                </a>
+                <a href="tel:+8801914581046" class="info-link">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+8801914581046</span>
+                </a>
+                <a href="https://linkedin.com/in/md-samiul-alim-83834511b" target="_blank" class="info-link">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>linkedin.com/in/md-samiul-alim-83834511b</span>
+                </a>
+                <div class="info-link">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Ahmednagar, Mirpur, Dhaka, Bangladesh</span>
+                </div>
+            </div>
+            
+            <div class="contact-status-card">
+                <i class="fa-solid fa-circle-check"></i>
+                <h3>Ready for Global Coordination</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    Multi-domain qualifications in IT Operations and Cyber Security, prepared to support enterprise environments immediately.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Md. Samiul Alim. Powered by GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
